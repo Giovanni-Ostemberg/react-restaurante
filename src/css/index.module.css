@@ -1,0 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Charm&display=swap");
+body,
+html,
+.main {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+body,
+.main {
+  line-height: 100%;
+  display: block;
+}
+.main {
+  background-color: blue;
+}
+h1 {
+  /* margin: auto; */
+  /* text-align: center; */
+  font-family: "Charm", cursive;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1.5;
+}
