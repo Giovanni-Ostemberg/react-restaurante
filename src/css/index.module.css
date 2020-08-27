@@ -9,16 +9,13 @@ html,
 body,
 .main {
   line-height: 100%;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
-.main {
-  background-color: blue;
-}
+
 h1 {
-  /* margin: auto; */
-  /* text-align: center; */
   font-family: "Charm", cursive;
   display: inline-block;
-  vertical-align: middle;
-  line-height: 1.5;
+  text-align: center;
 }
