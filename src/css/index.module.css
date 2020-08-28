@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Charm&display=swap");
 body,
-html,
-.main {
+html {
   margin: 0;
   height: 100%;
   width: 100%;
@@ -16,6 +15,18 @@ body,
 
 h1 {
   font-family: "Charm", cursive;
-  display: inline-block;
-  text-align: center;
+  /* display: inline-block;
+  text-align: center; */
+}
+
+.carousel .carousel-item {
+  width: 100%;
+  height: 100%;
+  background-color: red;
+}
+
+.collection {
+  color: red;
+  display: block;
+  overflow: auto;
 }

@@ -1,39 +1,60 @@
 import React, { useState } from "react";
 import M from "materialize-css";
-import css from "./css/index.module.css";
 
-export default function TapButton() {
+export default function TapButton({ handleClientMenu, isOpenClientMenu }) {
   const [isOpen, setIsOpen] = useState(false);
-  const handleMenu = () => {
+  const [elem, setElem] = useState(document.querySelector(".fixed-action-btn"));
+  const [instance, setInstance] = useState(
+    M.FloatingActionButton.init(elem, {})
+  );
+
+  const handleMenu = async () => {
+    // await setElement().then(console.log(elem));
+    // await open();
+    // instance.open();
+
     let elem = document.querySelector(".fixed-action-btn");
-    let instance = M.FloatingActionButton.init(elem, { direction: "radial" });
-    console.log(!isOpen);
-    instance.open();
+    let instance = M.FloatingActionButton.init(elem, {});
+    instance = instance.open();
+  };
+
+  const openClientMenu = () => {
+    let elem = document.querySelector(".fixed-action-btn");
+    let instance = M.FloatingActionButton.init(elem, {});
+    instance = instance.open();
+
+    handleClientMenu();
   };
 
   return (
     <div className="fixed-action-btn" onMouseEnter={handleMenu}>
-      <a className="btn-floating btn-large red">
+      <a className="btn-floating btn-large red hoverable">
         <i className="large material-icons">mode_edit</i>
       </a>
       <ul>
         <li>
-          <a className="btn-floating red">
-            <i className="material-icons">insert_chart</i>
+          <a className="btn-floating red hoverable" onClick={openClientMenu}>
+            <i className="material-icons">
+              {!isOpenClientMenu && "people"}
+              {isOpenClientMenu && "home"}
+            </i>
           </a>
         </li>
         <li>
-          <a className="btn-floating yellow darken-1">
-            <i className="material-icons">format_quote</i>
+          <a className="btn-floating yellow darken-1 hoverable">
+            <i className="material-icons">
+              {!isOpenClientMenu && "restaurant_menu"}
+              {isOpenClientMenu && "home"}
+            </i>
           </a>
         </li>
         <li>
-          <a className="btn-floating green">
+          <a className="btn-floating green hoverable">
             <i className="material-icons">publish</i>
           </a>
         </li>
         <li>
-          <a className="btn-floating blue">
+          <a className="btn-floating blue hoverable">
             <i className="material-icons">attach_file</i>
           </a>
         </li>
