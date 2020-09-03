@@ -17,8 +17,8 @@ export default function ClientMenu() {
           </div>
           <div className="row">
             <div className="input-field col s12">
-              <input id="password" type="password" className="validate" />
-              <label htmlFor="password">Password</label>
+              <input id="address" type="text" className="validate" />
+              <label htmlFor="address">Endereço</label>
             </div>
           </div>
           <div className="row">
