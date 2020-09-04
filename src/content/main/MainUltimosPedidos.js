@@ -5,7 +5,7 @@ export default function MainUltimosPedidos() {
   const rows = [];
   for (let i = 1; i <= 10; i++) {
     rows.push(
-      <li class="collection-item">
+      <li class="collection-item orange lighten-4">
         <div className={css.cardContainer}>
           <div className={css.name}>
             <h6>Cliente {i}</h6>
@@ -27,8 +27,8 @@ export default function MainUltimosPedidos() {
   }
   return (
     <div
-      className="carousel-item"
-      href="#one!"
+      className="carousel-item z-depth-3"
+      href="#two!"
       style={{
         height: "99%",
         width: "80%",

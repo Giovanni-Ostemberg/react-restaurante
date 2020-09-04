@@ -1,9 +1,13 @@
 import React from "react";
+import css from "./css/index.module.css";
 
 export default function ClientMenu() {
   return (
-    <div>
-      <div className="row">
+    <div className={css.clientContainer}>
+      <div className={css.title}>
+        <h3>Cadastro de Clientes</h3>
+      </div>
+      <div className={"row " + css.clientForm}>
         <form className="col s12">
           <div className="row">
             <div className="input-field col s6">

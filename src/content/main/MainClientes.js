@@ -5,14 +5,14 @@ export default function MainClientes() {
   let rows = [];
   for (let i = 1; i <= 20; i++) {
     rows.push(
-      <li class="collection-item">
+      <li class="collection-item orange lighten-4">
         <div className={css.name}>Cliente {i}</div>
       </li>
     );
   }
   return (
     <div
-      className="carousel-item"
+      className="carousel-item z-depth-3"
       href="#one!"
       style={{
         height: "99%",

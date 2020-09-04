@@ -4,6 +4,7 @@ import TapButton from "./TapButton";
 import Loading from "./Loading";
 import ClientMenu from "./ClientMenu";
 import Main from "./Main";
+import Footer from "./Footer";
 
 function App() {
   const loadingText = "React Restaurante!";
@@ -37,13 +38,14 @@ function App() {
     return <Loading loading={loading} />;
   } else {
     return (
-      <div style={{ height: "100%", width: "100%" }}>
+      <div className={css.mainContainer}>
         {/* {!openClientMenu && <Main />} */}
         {openClientMenu ? <ClientMenu /> : <Main />}
         <TapButton
           handleClientMenu={handleClientMenu}
           isOpenClientMenu={openClientMenu}
         />
+        <Footer />
       </div>
     );
   }

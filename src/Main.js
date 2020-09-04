@@ -7,8 +7,11 @@ import MainUltimosPedidos from "./content/main/MainUltimosPedidos";
 export default function Main() {
   useEffect(() => {
     let elem = document.querySelector(".carousel");
-    let instance = M.Carousel.init(elem, {});
+    let instance = M.Carousel.init(elem, {
+      indicators: true,
+    });
     instance = M.Carousel.getInstance(elem);
+    console.log(instance);
   }, []);
 
   return (
@@ -16,7 +19,24 @@ export default function Main() {
       <div className={css.bigTitle}>
         <h3>React Restaurante</h3>
       </div>
-      <div className="carousel" style={{ width: "100%", border: "hidden" }}>
+      <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field">
+              <i class="material-icons prefix">search</i>
+              <textarea
+                id="icon_prefix2"
+                class="materialize-textarea"
+              ></textarea>
+              <label for="icon_prefix2">Buscar</label>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div
+        className="carousel carousel-slider center"
+        style={{ width: "100%", border: "hidden" }}
+      >
         <MainClientes />
         <MainUltimosPedidos />
         {/* <a className="carousel-item" href="#two!">
