@@ -27,7 +27,6 @@ h1 {
 }
 
 .collectionContainer {
-  color: green;
   display: block;
   overflow: auto;
 }
@@ -35,6 +34,7 @@ h1 {
 .cardContainer {
   display: flex;
   flex-direction: column;
+  padding: 0;
 }
 
 .total {
@@ -42,14 +42,27 @@ h1 {
   color: red;
 }
 
+.title {
+  background-color: #e6822b;
+  font-family: "Charm", serif;
+  text-align: center;
+  margin-bottom: 0;
+  border: 1px solid black;
+}
+
 .name,
 .itens,
 .total {
   font-family: "Charm", serif;
   font-size: 1em;
-  color: black;
 }
 .name {
   text-align: center;
-  color: blue;
+}
+.itens {
+  text-align: center;
+}
+
+.total {
+  color: red;
 }

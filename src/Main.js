@@ -12,10 +12,14 @@ export default function Main() {
   }, []);
 
   return (
-    <div className="carousel" style={{ width: "100%" }}>
-      <MainClientes />
-      <MainUltimosPedidos />
-      <a className="carousel-item" href="#two!">
+    <div className={css.main}>
+      <div className={css.bigTitle}>
+        <h3>React Restaurante</h3>
+      </div>
+      <div className="carousel" style={{ width: "100%", border: "hidden" }}>
+        <MainClientes />
+        <MainUltimosPedidos />
+        {/* <a className="carousel-item" href="#two!">
         <img src="https://lorempixel.com/250/250/nature/2" />
       </a>
       <a className="carousel-item" href="#three!">
@@ -26,7 +30,8 @@ export default function Main() {
       </a>
       <a className="carousel-item" href="#five!">
         <img src="https://lorempixel.com/250/250/nature/5" />
-      </a>
+      </a> */}
+      </div>
     </div>
   );
 }
