@@ -45,7 +45,6 @@ function App() {
           handleClientMenu={handleClientMenu}
           isOpenClientMenu={openClientMenu}
         />
-        <Footer />
       </div>
     );
   }

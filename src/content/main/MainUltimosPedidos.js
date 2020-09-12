@@ -27,22 +27,22 @@ export default function MainUltimosPedidos() {
   }
   return (
     <div
-      className="carousel-item z-depth-3"
-      href="#two!"
+      // className="carousel-item z-depth-3"
+      // href="#two!"
+      id="last"
       style={{
         height: "99%",
-        width: "80%",
+        width: "100%",
         display: "flex",
         flexDirection: "column",
-        border: "1px solid black",
-        // overflow: "auto",
+        overflow: "auto",
       }}
     >
-      <div className={css.title}>
-        <h4>Últimos Pedidos</h4>
-      </div>
       <div className={css.collectionContainer}>
-        <ul class="collection with-header" style={{ marginTop: 0 }}>
+        <ul
+          className="collection with-header"
+          style={{ marginTop: 0, overflow: "auto" }}
+        >
           {rows}
         </ul>
       </div>
