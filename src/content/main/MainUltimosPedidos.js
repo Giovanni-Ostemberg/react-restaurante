@@ -5,7 +5,7 @@ export default function MainUltimosPedidos() {
   const rows = [];
   for (let i = 1; i <= 10; i++) {
     rows.push(
-      <li class="collection-item orange lighten-4">
+      <li class="collection-item">
         <div className={css.cardContainer}>
           <div className={css.name}>
             <h6>Cliente {i}</h6>
