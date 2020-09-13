@@ -11,7 +11,12 @@ export default function ClientMenu() {
         <form className="col s12">
           <div className="row">
             <div className="input-field col s6">
-              <input id="first_name" type="text" className="validate" />
+              <input
+                id="first_name"
+                type="text"
+                className="validate"
+                autoFocus
+              />
               <label htmlFor="first_name">Nome</label>
             </div>
             <div className="input-field col s6">

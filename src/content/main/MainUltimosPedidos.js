@@ -8,12 +8,20 @@ export default function MainUltimosPedidos() {
       <li class="collection-item">
         <div className={css.cardContainer}>
           <div className={css.name}>
-            <h6>Cliente {i}</h6>
+            <h6>
+              <b>Cliente {i}</b>
+            </h6>
           </div>
           <div className={css.itens}>
-            <span>1x Marmitex nº8 + 1x Coca-cola Mini + 2x trufas</span>
+            <span>
+              <i>
+                1x Marmitex nº8 + 1x Coca-cola Mini + 2x trufas + 1x Coca-cola
+                Mini + 2x trufas
+              </i>
+            </span>
           </div>
           <div className={css.total}>
+            <span style={{ float: "left", color: "lightgray" }}>HH:MM</span>
             <span>
               {new Intl.NumberFormat("pt-BR", {
                 style: "currency",

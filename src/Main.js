@@ -26,7 +26,7 @@ export default function Main() {
         <div className={css.bigTitle}>
           <h3>React Restaurante</h3>
         </div>
-        <div class="row" style={{ width: "100%", marginBottom: "0" }}>
+        {/* <div class="row" style={{ width: "100%", marginBottom: "0" }}>
           <form style={{ width: "80%", margin: "auto" }}>
             <div class="row   center">
               <div class="input-field">
@@ -39,7 +39,7 @@ export default function Main() {
               </div>
             </div>
           </form>
-        </div>
+        </div> */}
       </div>
       <div>
         <Tabs handleInstanceChange={handleInstanceChange} />

@@ -12,7 +12,7 @@ export default function Tabs({ handleInstanceChange }) {
             <a href="#client">Clientes</a>
           </li>
           <li class="tab col s3 active">
-            <a href="#last">Últimos Pedidos</a>
+            <a href="#last">Pedidos (hoje)</a>
           </li>
         </ul>
       </div>
