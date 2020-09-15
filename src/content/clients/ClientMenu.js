@@ -14,7 +14,7 @@ export default function ClientMenu({ handleClientMenu, openClientMenu }) {
     let cepValue = document.querySelector("#address-cep").value;
     console.log(cepValue);
     if (cepValue.length === 8) {
-      let data = await fetch("http://viacep.com.br/ws/" + cepValue + "/json/");
+      let data = await fetch("https://viacep.com.br/ws/" + cepValue + "/json/");
       let dataJson = await data.json();
       setNewValues(dataJson);
     }
