@@ -1,37 +1,38 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import M from "materialize-css";
 
 export default function TapButton({ handleClientMenu, isOpenClientMenu }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [elem, setElem] = useState(document.querySelector(".fixed-action-btn"));
+  const [elem, setElem] = useState(document.querySelector("#tap"));
   const [instance, setInstance] = useState(
     M.FloatingActionButton.init(elem, {})
   );
 
-  const handleMenu = async () => {
-    // await setElement().then(console.log(elem));
-    // await open();
-    // instance.open();
-
-    let elem = document.querySelector(".fixed-action-btn");
-    let instance = M.FloatingActionButton.init(elem, {});
-    instance = instance.open();
-  };
+  useEffect(() => {
+    const start = async () => {
+      setElem(document.querySelector("#tap"));
+      setInstance(M.FloatingActionButton.init(elem, {}));
+    };
+    start();
+  }, []);
 
   const openClientMenu = () => {
-    let elem = document.querySelector(".fixed-action-btn");
-    let instance = M.FloatingActionButton.init(elem, {});
-    instance = instance.open();
-
     handleClientMenu();
   };
 
+  const closeInstance = () => {
+    let elem = document.querySelector(".fixed-action-btn");
+    let instance = M.FloatingActionButton.init(elem, {});
+    instance.close();
+    setInstance(instance);
+  };
+
   return (
-    <div className="fixed-action-btn" onMouseEnter={handleMenu}>
+    <div className="fixed-action-btn" id="tap">
       <a className="btn-floating btn-large red hoverable">
         <i className="large material-icons">mode_edit</i>
       </a>
-      <ul>
+      <ul onClick={closeInstance}>
         <li>
           <a className="btn-floating red hoverable" onClick={openClientMenu}>
             <i className="material-icons">
@@ -42,10 +43,7 @@ export default function TapButton({ handleClientMenu, isOpenClientMenu }) {
         </li>
         <li>
           <a className="btn-floating yellow darken-1 hoverable">
-            <i className="material-icons">
-              {!isOpenClientMenu && "restaurant_menu"}
-              {isOpenClientMenu && "home"}
-            </i>
+            <i className="material-icons">restaurant_menu</i>
           </a>
         </li>
         <li>

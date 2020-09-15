@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import css from "./css/index.module.css";
 import TapButton from "./TapButton";
+
 import Loading from "./Loading";
-import ClientMenu from "./ClientMenu";
+import ClientMenu from "./content/clients/ClientMenu";
 import Main from "./Main";
 import Footer from "./Footer";
 
@@ -31,7 +32,6 @@ function App() {
 
   const handleClientMenu = () => {
     setOpenClientMenu(!openClientMenu);
-    console.log(openClientMenu);
   };
 
   if (!init) {
@@ -39,22 +39,20 @@ function App() {
   } else {
     return (
       <div className={css.mainContainer}>
-        {/* {!openClientMenu && <Main />} */}
-        {openClientMenu ? <ClientMenu /> : <Main />}
-        <TapButton
-          handleClientMenu={handleClientMenu}
-          isOpenClientMenu={openClientMenu}
-        />
+        {openClientMenu ? (
+          <ClientMenu
+            handleClientMenu={handleClientMenu}
+            openClientMenu={openClientMenu}
+          />
+        ) : (
+          <Main
+            handleClientMenu={handleClientMenu}
+            openClientMenu={openClientMenu}
+          />
+        )}
       </div>
     );
   }
-
-  // return (
-  //   <div>
-  //     {init && <Loading />}
-  //     <TapButton />;
-  //   </div>
-  // );
 }
 
 export default App;

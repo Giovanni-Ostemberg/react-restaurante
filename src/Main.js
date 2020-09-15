@@ -3,10 +3,12 @@ import M, { AutoInit } from "materialize-css";
 import css from "./css/index.module.css";
 import MainClientes from "./content/main/MainClientes";
 import MainUltimosPedidos from "./content/main/MainUltimosPedidos";
+import TapButton from "./TapButton";
+
 import Tabs from "./content/main/Tabs";
 import Footer from "./Footer";
 
-export default function Main() {
+export default function Main({ handleClientMenu, openClientMenu }) {
   useEffect(() => {
     let el = document.querySelector(".tabs");
     var instance = M.Tabs.init(el, {
@@ -26,7 +28,7 @@ export default function Main() {
         <div className={css.bigTitle}>
           <h3>React Restaurante</h3>
         </div>
-        {/* <div class="row" style={{ width: "100%", marginBottom: "0" }}>
+        <div class="row" style={{ width: "100%", marginBottom: "0" }}>
           <form style={{ width: "80%", margin: "auto" }}>
             <div class="row   center">
               <div class="input-field">
@@ -39,13 +41,17 @@ export default function Main() {
               </div>
             </div>
           </form>
-        </div> */}
+        </div>
       </div>
       <div>
         <Tabs handleInstanceChange={handleInstanceChange} />
         <MainClientes />
         <MainUltimosPedidos />
       </div>
+      <TapButton
+        handleClientMenu={handleClientMenu}
+        isOpenClientMenu={openClientMenu}
+      />
       <Footer />
     </div>
   );
