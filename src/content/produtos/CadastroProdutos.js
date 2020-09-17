@@ -10,6 +10,15 @@ export default function CadastroProdutos({
   openProductMenu,
   handleProductMenu,
 }) {
+  useEffect(() => {
+    var elems = document.querySelectorAll("select");
+    var instances = M.FormSelect.init(elems, {});
+  }, []);
+
+  const test = (event) => {
+    console.log(event.target);
+  };
+
   return (
     <div className="container">
       <div className={css.title}>
@@ -34,16 +43,25 @@ export default function CadastroProdutos({
                 <option value="" disabled selected>
                   Selecione uma opção
                 </option>
-                <option value="1">Opção 1</option>
-                <option value="2">Opção 2</option>
-                <option value="3">Opção 3</option>
-                <option value="4">Opção 4</option>
+                <option value="1">Refeição Local</option>
+                <option value="2">Refeição para levar</option>
+                <option value="3">Refrigerante</option>
+                <option value="4">Suco Natural</option>
               </select>
               <label>Categoria</label>
             </div>
-          </div>
-          <div className={css.addressContainer + " z-depth-1"}>
-            <div className="row"></div>
+
+            <div class="input-field col s12">
+              <select multiple className="subproducts" onChange={test}>
+                <option value="" disabled>
+                  Selecione os subprodutos
+                </option>
+                <option value="1">subproduto 1</option>
+                <option value="2">subproduto 2</option>
+                <option value="3">subproduto 3</option>
+              </select>
+              <label>Subprodutos Relacionados</label>
+            </div>
           </div>
         </form>
       </div>

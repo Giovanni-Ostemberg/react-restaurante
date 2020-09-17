@@ -18,7 +18,12 @@ export default function ClientMenu({
   const handleCEP = async () => {
     let cepValue = document.querySelector("#address-cep").value;
     console.log(cepValue);
-    if (cepValue.length === 8) {
+    if (cepValue.length === 5) {
+      document.querySelector("#address-cep").value = cepValue += "-";
+    }
+    if (cepValue.length === 9) {
+      cepValue = cepValue.split("-");
+      cepValue = cepValue[0] + cepValue[1];
       let data = await fetch("https://viacep.com.br/ws/" + cepValue + "/json/");
       let dataJson = await data.json();
       console.log(dataJson);
@@ -86,7 +91,7 @@ export default function ClientMenu({
             </div>
             <div className="row">
               {/* Logradouro, número, Complemento, Bairro - CEP, Referência */}
-              <div className="input-field col s4">
+              <div className="input-field col s8">
                 <input
                   id="address-bairro"
                   type="text"
@@ -106,14 +111,14 @@ export default function ClientMenu({
                 />
                 <label htmlFor="address-cep">CEP</label>
               </div>
-              <div className="input-field col s4">
+              {/* <div className="input-field col s4">
                 <input
                   id="address-complemento"
                   type="text"
                   className="validate"
                 />
                 <label htmlFor="address-complemento">Complemento</label>
-              </div>
+              </div> */}
             </div>
           </div>
           <div className="row">
