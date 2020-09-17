@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from "react";
 import M from "materialize-css";
 
-export default function TapButton({ handleClientMenu, isOpenClientMenu }) {
+export default function TapButton({
+  handleClientMenu,
+  isOpenClientMenu,
+  isOpenProductMenu,
+  handleProductMenu,
+}) {
   const [isOpen, setIsOpen] = useState(false);
   const [elem, setElem] = useState(document.querySelector("#tap"));
   const [instance, setInstance] = useState(
@@ -42,8 +47,14 @@ export default function TapButton({ handleClientMenu, isOpenClientMenu }) {
           </a>
         </li>
         <li>
-          <a className="btn-floating yellow darken-1 hoverable">
-            <i className="material-icons">restaurant_menu</i>
+          <a
+            className="btn-floating yellow darken-1 hoverable"
+            onClick={handleProductMenu}
+          >
+            <i className="material-icons">
+              {!isOpenProductMenu && "restaurant_menu"}
+              {isOpenProductMenu && "home"}
+            </i>
           </a>
         </li>
         <li>

@@ -4,7 +4,12 @@ import TapButton from "../../TapButton";
 import css from "../css/clientMenu.module.css";
 import axios from "axios";
 
-export default function ClientMenu({ handleClientMenu, openClientMenu }) {
+export default function ClientMenu({
+  handleClientMenu,
+  openClientMenu,
+  openProductMenu,
+  handleProductMenu,
+}) {
   const [logradouro, setLogradouro] = useState("");
   const [bairro, setBairro] = useState("");
   const [cidade, setCidade] = useState("");
@@ -16,7 +21,12 @@ export default function ClientMenu({ handleClientMenu, openClientMenu }) {
     if (cepValue.length === 8) {
       let data = await fetch("https://viacep.com.br/ws/" + cepValue + "/json/");
       let dataJson = await data.json();
-      setNewValues(dataJson);
+      console.log(dataJson);
+      if (!dataJson.erro) {
+        setNewValues(dataJson);
+      } else {
+        M.toast({ html: "CEP Inválido" });
+      }
     }
   };
 
@@ -117,6 +127,8 @@ export default function ClientMenu({ handleClientMenu, openClientMenu }) {
       <TapButton
         handleClientMenu={handleClientMenu}
         isOpenClientMenu={openClientMenu}
+        handleProductMenu={handleProductMenu}
+        isOpenProductMenu={openProductMenu}
       />
     </div>
   );

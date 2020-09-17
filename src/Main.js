@@ -8,7 +8,12 @@ import TapButton from "./TapButton";
 import Tabs from "./content/main/Tabs";
 import Footer from "./Footer";
 
-export default function Main({ handleClientMenu, openClientMenu }) {
+export default function Main({
+  handleClientMenu,
+  openClientMenu,
+  handleProductMenu,
+  isOpenProductMenu,
+}) {
   useEffect(() => {
     let el = document.querySelector(".tabs");
     var instance = M.Tabs.init(el, {
@@ -51,6 +56,8 @@ export default function Main({ handleClientMenu, openClientMenu }) {
       <TapButton
         handleClientMenu={handleClientMenu}
         isOpenClientMenu={openClientMenu}
+        handleProductMenu={handleProductMenu}
+        isOpenProductMenu={isOpenProductMenu}
       />
       <Footer />
     </div>
