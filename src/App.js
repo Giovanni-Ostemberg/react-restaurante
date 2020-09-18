@@ -7,6 +7,7 @@ import Loading from "./Loading";
 import ClientMenu from "./content/clients/ClientMenu";
 import Main from "./Main";
 import Footer from "./Footer";
+import CadastroPedido from "./content/pedidos/CadastroPedidos";
 
 function App() {
   const loadingText = "React Restaurante!";
@@ -91,6 +92,8 @@ function App() {
       }
     }
   }
+
+  // return <CadastroPedido />;
 }
 
 export default App;

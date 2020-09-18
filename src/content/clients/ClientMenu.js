@@ -15,10 +15,10 @@ export default function ClientMenu({
   const [cidade, setCidade] = useState("");
   const [estado, setEstado] = useState("");
 
-  const handleCEP = async () => {
+  const handleCEP = async (event) => {
     let cepValue = document.querySelector("#address-cep").value;
-    console.log(cepValue);
-    if (cepValue.length === 5) {
+    console.log(event.key);
+    if (cepValue.length === 5 && event.key !== "Backspace") {
       document.querySelector("#address-cep").value = cepValue += "-";
     }
     if (cepValue.length === 9) {
@@ -107,7 +107,7 @@ export default function ClientMenu({
                   id="address-cep"
                   type="text"
                   className="validate"
-                  onChange={handleCEP}
+                  onKeyUp={handleCEP}
                 />
                 <label htmlFor="address-cep">CEP</label>
               </div>

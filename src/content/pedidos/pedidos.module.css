@@ -1,0 +1,34 @@
+.categorias {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid rgb(6, 54, 54);
+  justify-content: space-around;
+}
+.body {
+  height: 100%;
+  padding: 15px;
+}
+
+.secao {
+  height: 50%;
+  background-color: grey;
+  border-color: 1px solid rgb(6, 54, 54);
+  display: flex;
+}
+
+a {
+  margin: 5px;
+}
+
+.produtos {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  display: block;
+  overflow: auto;
+}
+
+.produtos button {
+  margin: 3px;
+  border-radius: 45%;
+}
