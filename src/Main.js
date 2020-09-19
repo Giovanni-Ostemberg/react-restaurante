@@ -13,6 +13,7 @@ export default function Main({
   openClientMenu,
   handleProductMenu,
   isOpenProductMenu,
+  handleOrderMenu,
 }) {
   useEffect(() => {
     let el = document.querySelector(".tabs");
@@ -50,7 +51,7 @@ export default function Main({
       </div>
       <div>
         <Tabs handleInstanceChange={handleInstanceChange} />
-        <MainClientes />
+        <MainClientes handleOrderMenu={handleOrderMenu} />
         <MainUltimosPedidos />
       </div>
       <TapButton

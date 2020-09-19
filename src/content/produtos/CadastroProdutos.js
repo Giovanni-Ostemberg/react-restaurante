@@ -89,7 +89,6 @@ export default function CadastroProdutos({
                 id="description"
                 type="text"
                 className="validate"
-                autoFocus
                 required
               />
               <label htmlFor="first_name">Descrição</label>

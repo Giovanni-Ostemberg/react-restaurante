@@ -2,11 +2,15 @@ import React, { useEffect } from "react";
 import css from "../css/index.module.css";
 import M from "materialize-css";
 
-export default function MainClientes() {
+export default function MainClientes({ handleOrderMenu }) {
   useEffect(() => {
     var elems = document.querySelectorAll(".collapsible");
     var instances = M.Collapsible.init(elems, {});
   }, []);
+
+  const handleClick = (event) => {
+    handleOrderMenu(event.target.id);
+  };
 
   let rows = [];
   for (let i = 1; i <= 20; i++) {
@@ -19,7 +23,11 @@ export default function MainClientes() {
           <div style={{ width: "100%" }}>
             <span className={css.name + " left"}>Cliente {i}</span>
             <a className="btn-flat secondary-content right">
-              <i className="material-icons green-text text-accent-3">
+              <i
+                id={"Cliente " + i}
+                onClick={handleClick}
+                className="material-icons green-text text-accent-3"
+              >
                 add_circle_outline
               </i>
             </a>
@@ -29,6 +37,7 @@ export default function MainClientes() {
           <a
             class="btn-floating btn-medium waves-effect waves-light  cyan accent-3"
             style={{ marginRight: "10px" }}
+            onClick={handleClick}
           >
             <i class="material-icons">edit</i>
           </a>

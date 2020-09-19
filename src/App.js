@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import css from "./css/index.module.css";
 import TapButton from "./TapButton";
 import ProductMenu from "./content/produtos/CadastroProdutos";
+import OrderMenu from "./content/pedidos/CadastroPedidos";
 
 import Loading from "./Loading";
 import ClientMenu from "./content/clients/ClientMenu";
@@ -16,6 +17,8 @@ function App() {
   const [init, setInit] = useState(false);
   const [openClientMenu, setOpenClientMenu] = useState(false);
   const [openProductMenu, setOpenProductMenu] = useState(false);
+  const [openOrderMenu, setOpenOrderMenu] = useState(false);
+  const [selectedClient, setSelectedClient] = useState("");
 
   useEffect(() => {
     let showText = loading;
@@ -35,12 +38,25 @@ function App() {
 
   const handleClientMenu = () => {
     setOpenProductMenu(false);
+    setOpenOrderMenu(false);
     setOpenClientMenu(!openClientMenu);
   };
 
   const handleProductMenu = () => {
+    setOpenOrderMenu(false);
     setOpenClientMenu(false);
     setOpenProductMenu(!openProductMenu);
+  };
+
+  const handleOrderMenu = (client) => {
+    setOpenOrderMenu(!openOrderMenu);
+    setSelectedClient(client);
+    setOpenClientMenu(false);
+    setOpenProductMenu(false);
+  };
+
+  const closeOrderMenu = () => {
+    setOpenOrderMenu(!openOrderMenu);
   };
 
   if (!init) {
@@ -55,6 +71,7 @@ function App() {
               openClientMenu={openClientMenu}
               handleProductMenu={handleProductMenu}
               openProductMenu={openProductMenu}
+              handleOrderMenu={handleOrderMenu}
             />
           ) : (
             <Main
@@ -79,21 +96,33 @@ function App() {
           </div>
         );
       } else {
-        return (
-          <div className={css.mainContainer}>
-            <Main
-              handleClientMenu={handleClientMenu}
-              openClientMenu={openClientMenu}
-              handleProductMenu={handleProductMenu}
-              openProductMenu={openProductMenu}
-            />
-          </div>
-        );
+        if (openOrderMenu) {
+          return (
+            <div className={css.mainContainer}>
+              <OrderMenu
+                handleOrderMenu={handleOrderMenu}
+                selectedClient={selectedClient}
+                handleHome={closeOrderMenu}
+              />
+            </div>
+          );
+        } else {
+          return (
+            <div className={css.mainContainer}>
+              <Main
+                handleClientMenu={handleClientMenu}
+                handleOrderMenu={handleOrderMenu}
+                openClientMenu={openClientMenu}
+                handleProductMenu={handleProductMenu}
+                openProductMenu={openProductMenu}
+              />
+            </div>
+          );
+        }
       }
     }
+
+    // return <CadastroPedido />;
   }
-
-  // return <CadastroPedido />;
 }
-
 export default App;
