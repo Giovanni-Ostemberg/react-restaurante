@@ -9,26 +9,28 @@
   border-right: 1px solid rgb(6, 54, 54);
   justify-content: space-around;
 }
+
 .body {
   height: 100%;
-  padding: 15px;
+  padding: 10px;
 }
 
 .secao {
-  height: 40%;
+  height: 30%;
   border-color: 1px solid rgb(6, 54, 54);
   display: flex;
   border-radius: 5%;
 }
 
 .tableItem {
-  height: 30%;
+  height: fit-content;
   border-color: 1px solid rgb(6, 54, 54);
   display: flex;
 }
 
 .secaoTitle {
-  height: 5%;
+  height: fit-content;
+  margin-bottom: 5px;
 }
 
 a {
@@ -38,12 +40,24 @@ a {
 .produtos {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
   flex-direction: row;
-  display: block;
   overflow: auto;
 }
 
 .produtos button {
+  font-size: 0.5em;
+  white-space: normal;
+  word-wrap: normal;
+}
+
+.categorias a {
+  font-size: 1.1vh;
+  white-space: normal;
+  word-wrap: normal;
+}
+
+.produtos button {
   margin: 3px;
-  border-radius: 45%;
+  border-radius: 10%;
 }

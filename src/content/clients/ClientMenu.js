@@ -17,7 +17,6 @@ export default function ClientMenu({
 
   const handleCEP = async (event) => {
     let cepValue = document.querySelector("#address-cep").value;
-    console.log(event.key);
     if (cepValue.length === 5 && event.key !== "Backspace") {
       document.querySelector("#address-cep").value = cepValue += "-";
     }
@@ -44,6 +43,17 @@ export default function ClientMenu({
     setCidade(data.localidade);
     setLogradouro(data.logradouro);
     setBairro(data.bairro);
+  };
+
+  const formatTelephone = async (event) => {
+    let celValue = document.querySelector("#telefone").value;
+    console.log(celValue.lenght);
+    if (celValue.length === 1 && event.key !== "Backspace") {
+      document.querySelector("#telefone").value = celValue += " ";
+    }
+    if (celValue.length === 6 && event.key !== "Backspace") {
+      document.querySelector("#telefone").value = celValue += "-";
+    }
   };
 
   return (
@@ -108,6 +118,7 @@ export default function ClientMenu({
                   type="text"
                   className="validate"
                   onKeyUp={handleCEP}
+                  pattern="\d{5}-?\d{3}"
                 />
                 <label htmlFor="address-cep">CEP</label>
               </div>
@@ -125,6 +136,17 @@ export default function ClientMenu({
             <div className="input-field col s12">
               <input id="email" type="email" className="validate" />
               <label htmlFor="email">Email</label>
+            </div>
+          </div>
+          <div className="row">
+            <div className="input-field col s8">
+              <input
+                id="telefone"
+                type="text"
+                className="validate"
+                onKeyUp={formatTelephone}
+              />
+              <label htmlFor="telefone">Telefone</label>
             </div>
           </div>
         </form>

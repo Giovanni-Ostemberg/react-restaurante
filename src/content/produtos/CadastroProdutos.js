@@ -17,6 +17,7 @@ export default function CadastroProdutos({
     var elemsChips = document.querySelectorAll(".chips");
     var instanceChips = M.Chips.init(elemsChips, {
       onChipDelete: unSelectSubs,
+      placeholder: "Outro",
     });
 
     var elems = document.querySelectorAll(".modal");
@@ -80,19 +81,15 @@ export default function CadastroProdutos({
       <div className={css.title}>
         <h3>Cadastro de Produtos</h3>
       </div>
-      <div className={"row " + css.clientForm}>
+      <div className="row">
+        <div className="row">
+          <div className="input-field col s6">
+            <input id="name" type="text" className="validate" required />
+            <label htmlFor="name">Descrição</label>
+          </div>
+        </div>
         <form className="col s12">
           <div className="row">
-            <div className="input-field col s6">
-              {/* Reconhecer primeira letra maiúscula, verificar existência de nomes parecidos ou iguais... sugestões de nomes */}
-              <input
-                id="description"
-                type="text"
-                className="validate"
-                required
-              />
-              <label htmlFor="first_name">Descrição</label>
-            </div>
             <div className="input-field col s12">
               <select>
                 <option value="" disabled selected>
@@ -125,7 +122,7 @@ export default function CadastroProdutos({
             </div>
           </div>
         </form>
-        <div className="chips" id="chip-container"></div>
+        <div className="chips chips-placeholder" id="chip-container"></div>
       </div>
       <TapButton
         handleClientMenu={handleClientMenu}

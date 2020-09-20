@@ -50,13 +50,9 @@ export default function MainClientes({ handleOrderMenu }) {
   }
   return (
     <div
-      // className="carousel-item z-depth-3"
       id="client"
-      // href="#one!"
       style={{
-        // height: "400px",
         width: "100%",
-        // display: "block",
         overflow: "auto",
       }}
     >

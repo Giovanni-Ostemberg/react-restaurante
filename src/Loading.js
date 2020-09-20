@@ -7,7 +7,7 @@ export default function Loading({ loading }) {
       style={{ diplay: "flex", flexDirection: "column" }}
     >
       <div>
-        <h1 className="center-align">{loading}</h1>
+        <h4 className="center-align">{loading}</h4>
       </div>
       <div className="progress">
         <div className="indeterminate" style={{ width: "70%" }}></div>

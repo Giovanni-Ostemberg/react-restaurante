@@ -35,8 +35,8 @@ export default function Main({
           <h3>React Restaurante</h3>
         </div>
         <div class="row" style={{ width: "100%", marginBottom: "0" }}>
-          <form style={{ width: "80%", margin: "auto" }}>
-            <div class="row   center">
+          <form style={{ width: "80%", margin: "auto", marginBottom: "0" }}>
+            <div class="row center" style={{ marginBottom: "0" }}>
               <div class="input-field">
                 <i class="material-icons prefix">search</i>
                 <textarea
