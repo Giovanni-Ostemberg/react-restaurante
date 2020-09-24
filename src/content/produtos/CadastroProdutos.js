@@ -24,6 +24,10 @@ export default function CadastroProdutos({
     var instances = M.Modal.init(elems, {});
   }, []);
 
+  window.onbeforeunload = () => {
+    return handleProductMenu();
+  };
+
   let checkboxes = [];
 
   const unSelectSubs = (event) => {
@@ -76,6 +80,43 @@ export default function CadastroProdutos({
     );
   }
 
+  const calculateProfit = () => {
+    const purchaseValue = parseFloat(
+      document.querySelector("#purchase-value").value
+    );
+    const sellingValue = parseFloat(
+      document.querySelector("#selling-value").value
+    );
+
+    if (sellingValue && purchaseValue) {
+      let profit = sellingValue - purchaseValue;
+      document.querySelector("#profit").value = (
+        (profit / purchaseValue) *
+        100
+      ).toFixed(2);
+    }
+
+    if (!sellingValue || !purchaseValue) {
+      document.querySelector("#profit").value = 0;
+    }
+  };
+
+  const calculateSellingValue = () => {
+    const purchaseValue = parseFloat(
+      document.querySelector("#purchase-value").value
+    );
+    const profit = parseFloat(document.querySelector("#profit").value);
+
+    if (purchaseValue && profit) {
+      let sellingValue = purchaseValue + (purchaseValue * profit) / 100;
+      document.querySelector("#selling-value").value = sellingValue.toFixed(2);
+    }
+
+    if (!purchaseValue || !profit) {
+      document.querySelector("#selling-value").value = 0;
+    }
+  };
+
   return (
     <div className="container">
       <div className={css.title}>
@@ -86,6 +127,43 @@ export default function CadastroProdutos({
           <div className="input-field col s6">
             <input id="name" type="text" className="validate" required />
             <label htmlFor="name">Descrição</label>
+          </div>
+        </div>
+        <div className="row">
+          <div className="input-field col s4">
+            <input
+              id="purchase-value"
+              type="text"
+              className="validate"
+              onInput={calculateProfit}
+              required
+            />
+            <label className="active" htmlFor="purchase-value">
+              Valor de Compra
+            </label>
+          </div>
+          <div className="input-field col s4">
+            <input
+              id="selling-value"
+              type="text"
+              className="validate"
+              onInput={calculateProfit}
+              required
+            />
+            <label className="active" htmlFor="selling-value">
+              Valor Venal
+            </label>
+          </div>
+          <div className="input-field col s4">
+            <input
+              id="profit"
+              type="text"
+              className="validate"
+              onInput={calculateSellingValue}
+            />
+            <label className="active" htmlFor="rate">
+              Lucro (%)
+            </label>
           </div>
         </div>
         <form className="col s12">
@@ -123,6 +201,12 @@ export default function CadastroProdutos({
           </div>
         </form>
         <div className="chips chips-placeholder" id="chip-container"></div>
+        <div className="row">
+          <div class="input-field col s12">
+            <textarea id="textarea1" class="materialize-textarea"></textarea>
+            <label for="textarea1">Observações</label>
+          </div>
+        </div>
       </div>
       <TapButton
         handleClientMenu={handleClientMenu}

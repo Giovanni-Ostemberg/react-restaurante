@@ -3,6 +3,8 @@ import css from "./css/index.module.css";
 import TapButton from "./TapButton";
 import ProductMenu from "./content/produtos/CadastroProdutos";
 import OrderMenu from "./content/pedidos/CadastroPedidos";
+// import { BrowserHistory } from "react-history";
+import { Route, Switch } from "react-router-dom";
 
 import Loading from "./Loading";
 import ClientMenu from "./content/clients/ClientMenu";
@@ -19,6 +21,10 @@ function App() {
   const [openProductMenu, setOpenProductMenu] = useState(false);
   const [openOrderMenu, setOpenOrderMenu] = useState(false);
   const [selectedClient, setSelectedClient] = useState("");
+
+  window.onbeforeunload = () => {
+    return "Confirmar";
+  };
 
   useEffect(() => {
     let showText = loading;

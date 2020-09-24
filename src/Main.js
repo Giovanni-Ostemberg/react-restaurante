@@ -28,11 +28,15 @@ export default function Main({
     // instance.next();
   };
 
+  window.onbeforeunload = () => {
+    return "Confirmar";
+  };
+
   return (
     <div className={css.main}>
       <div>
         <div className={css.bigTitle}>
-          <h3>React Restaurante</h3>
+          <h4>React Restaurante</h4>
         </div>
         <div class="row" style={{ width: "100%", marginBottom: "0" }}>
           <form style={{ width: "80%", margin: "auto", marginBottom: "0" }}>
