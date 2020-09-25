@@ -1,12 +1,23 @@
 // Código, Data de Criação, Pessoa, data de alteração, usuário responsável por criação e alteração, Itens
 // Status do pedido (Pago, pendente, Pago parcialmente)
 //
-import React from "react";
+import React, { useEffect } from "react";
 import css from "./pedidos.module.css";
+import M from "materialize-css";
+import ProdutosCategoria from "./ProdutosCategoria";
 
 export default function CadastroPedidos({ selectedClient, handleHome }) {
+  useEffect(() => {
+    let el = document.querySelector(".tabs");
+    var instance = M.Tabs.init(el, {});
+  }, []);
+
+  const handleAdd = () => {
+    // const product = document.querySelector;
+  };
+
   return (
-    <div className={"row " + css.body}>
+    <div className={css.body}>
       <div className={"row " + css.secaoTitle}>
         <div className="col s6">
           <h6>{selectedClient}</h6>
@@ -17,65 +28,30 @@ export default function CadastroPedidos({ selectedClient, handleHome }) {
           </button>
         </div>
       </div>
-      <div className={"row  " + css.secao}>
-        <div className={"col s4 valign-wrapper " + css.categorias}>
-          <a class="waves-effect waves-light btn red darken-4">Categoria 1</a>
-          <a class="waves-effect waves-light btn red darken-4">Categoria 2</a>
-          <a class="waves-effect waves-light btn red darken-4">Categoria 3</a>
-          <a class="waves-effect waves-light btn red darken-4">Categoria 4</a>
-          <a class="waves-effect waves-light btn red darken-4">Categoria 5</a>
+
+      <div class={"row " + css.secao}>
+        <div class="col s12">
+          <ul class="tabs">
+            <li class="tab col s3">
+              <a href="#refeicoes">Refeições</a>
+            </li>
+            <li class="tab col s3">
+              <a class="active" href="#bebidas">
+                Bebidas
+              </a>
+            </li>
+            <li class="tab col s3">
+              <a href="#sucos">Sucos</a>
+            </li>
+            <li class="tab col s3">
+              <a href="#sobremesas">Sobremesas</a>
+            </li>
+          </ul>
         </div>
-        <div className={"col s8 " + css.produtos}>
-          <button className="btn ">Produto</button>
-          <button className="btn">Produto</button>
-          <button className="btn">Produto</button>
-          <button className="btn">Produto</button>
-          <button className="btn">Produto</button>
-          <button className="btn">Produto</button>
-          <button className="btn">Produto</button>
-          <button className="btn ">Produto</button>
-          <button className="btn">Produto</button>
-          <button className="btn">Produto</button>
-          <button className="btn">Produto</button>
-          <button className="btn">Produto</button>
-          <button className="btn">Produto</button>
-          <button className="btn">Produto</button>
-          <button className="btn">Produto</button>
-          <button className="btn ">Produto</button>
-          <button className="btn">Produto</button>
-          <button className="btn">Produto</button>
-          <button className="btn">Produto</button>
-          <button className="btn">Produto</button>
-          <button className="btn">Produto</button>
-          <button className="btn">Produto</button>
-        </div>
+        <ProdutosCategoria handleAdd={handleAdd} />
       </div>
       <div class="divider"></div>
-      <div class="row">
-        <form class="col s12">
-          <div class="row" style={{ marginBottom: "0" }}>
-            <div class="input-field col s2" style={{ marginBottom: "0" }}>
-              <input id="qtd" type="number" class="validate" />
-              <label for="qtd">Qtd</label>
-            </div>
-            <div class="input-field col s4" style={{ marginBottom: "0" }}>
-              <input id="descricao" type="text" class="validate" />
-              <label for="descricao">Descrição</label>
-            </div>
-            <div class="input-field col s3" style={{ marginBottom: "0" }}>
-              <input id="valor_un" type="number" class="validate" />
-              <label for="valor_un">Valor Un.</label>
-            </div>
-            <div class="input-field col s3" style={{ marginBottom: "0" }}>
-              <input id="total" type="number" class="validate" />
-              <label for="total">Total</label>
-            </div>
-          </div>
-        </form>
-        <div className="container col s1 offset-s10">
-          <button className="btn btn-floating">+</button>
-        </div>
-      </div>
+
       <div class="divider"></div>
       <div className={"row " + css.tableItem} style={{ marginBottom: "0" }}>
         <div class="col s12 ">

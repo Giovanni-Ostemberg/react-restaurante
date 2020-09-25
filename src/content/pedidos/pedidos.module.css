@@ -16,10 +16,12 @@
 }
 
 .secao {
-  height: 30%;
-  border-color: 1px solid rgb(6, 54, 54);
-  display: flex;
-  border-radius: 5%;
+  height: 40%;
+  display: block;
+  overflow: auto;
+  /* border-color: 1px solid rgb(6, 54, 54); */
+  /* display: flex; */
+  /* border-radius: 5%; */
 }
 
 .tableItem {
@@ -42,7 +44,7 @@ a {
   flex-wrap: wrap;
   justify-content: space-around;
   flex-direction: row;
-  overflow: auto;
+  /* overflow: auto; */
 }
 
 .produtos button {
@@ -60,4 +62,32 @@ a {
 .produtos button {
   margin: 3px;
   border-radius: 10%;
+}
+
+.itemLine .btnContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  overflow: auto;
+}
+
+.btnContainer input[type="button"] {
+  margin-right: 10px;
+  border-radius: 50%;
+  /* width: 33%; */
+  border: 1px solid lightgrey;
+}
+
+.btnContainer .add {
+  background-color: green;
+  color: white;
+}
+
+.btnContainer .remove {
+  background-color: red;
+  color: white;
+}
+
+.buttonItem {
+  width: 33%;
 }
