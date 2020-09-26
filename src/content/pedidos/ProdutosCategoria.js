@@ -35,7 +35,10 @@ export default function ProdutosCategoria({ handleAdd }) {
             return (
               <li className="collection-item row">
                 <div className="valign-wrapper col s8">
-                  <span className="centered" id="marmitex-grande">
+                  <span
+                    className="centered valign-wrapper"
+                    id="marmitex-grande"
+                  >
                     {" "}
                     {prod.nome}
                   </span>
